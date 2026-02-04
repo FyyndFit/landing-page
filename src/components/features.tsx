@@ -6,40 +6,40 @@ import { Camera, Dumbbell, Flame, BarChart3, Brain } from "lucide-react"
 const features = [
   {
     icon: Camera,
-    label: "Core Feature",
+    label: "Core",
     title: "Equipment Scanner",
-    description: "Point your camera at any gym equipment. Our AI identifies it instantly and shows you exactly how to use it with proper form.",
+    description: "Point your camera at any gym machine. Our AI identifies it instantly and teaches you proper form.",
+  },
+  {
+    icon: Brain,
+    label: "AI",
+    title: "Smart Workout Creator",
+    description: "Tell us your goals. AI builds a personalized routine tailored to your level and equipment.",
   },
   {
     icon: Dumbbell,
     label: "Learn",
     title: "Workout Tutorials",
-    description: "Access beginner-friendly video tutorials with step-by-step guidance. Learn proper technique and avoid common mistakes.",
-  },
-  {
-    icon: Brain,
-    label: "AI-Powered",
-    title: "Smart Workout Creator",
-    description: "Tell us your goals and available equipment. Our AI builds personalized workout plans tailored just for you.",
+    description: "Step-by-step video guidance on every exercise. Master proper technique from day one.",
   },
   {
     icon: Flame,
     label: "Track",
     title: "Calorie Tracking",
-    description: "Automatically track calories burned during each workout. Monitor your daily energy expenditure with precision.",
+    description: "Automatically track calories burned per session. Know your energy output precisely.",
   },
   {
     icon: BarChart3,
-    label: "Measure",
+    label: "Grow",
     title: "Progress Analytics",
-    description: "Visualize your fitness journey with detailed stats on workouts completed, calories burned, and personal records.",
+    description: "Visualize your journey. Workouts, streaks, personal records—all in one dashboard.",
   },
 ]
 
 export function Features() {
   return (
-    <section id="features" className="py-32 lg:py-40 bg-secondary">
-      <div className="container px-6 md:px-12 lg:px-20">
+    <section id="features" className="py-32 lg:py-40 bg-secondary texture-bg relative section-grayscale">
+      <div className="container px-6 md:px-12 lg:px-20 relative z-10">
         {/* Section label */}
         <motion.div
           className="flex items-center gap-4 mb-12"
@@ -74,45 +74,74 @@ export function Features() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            FyyndFit bridges the gap between equipment and expertise.
-            Everything you need to train with confidence.
+            Everything you need to train with confidence, all in one app.
           </motion.p>
         </div>
 
-        {/* Features grid - Modern bento-style */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {features.map((feature, index) => (
+        {/* Featured - Top two large cards */}
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-6 lg:mb-8">
+          {features.slice(0, 2).map((feature, index) => (
             <motion.div
               key={feature.title}
-              className={`group relative p-8 lg:p-10 rounded-3xl bg-background border border-border hover:border-primary/30 transition-all duration-500 ${
-                index === 0 ? "md:col-span-2 lg:col-span-1" : ""
-              }`}
+              className="group relative p-10 lg:p-12 rounded-3xl bg-muted border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden texture-card texture-border"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 + index * 0.08 }}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -4 }}
             >
-              {/* Subtle glow on hover */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Subtle hover glow */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10">
-                {/* Label */}
+                <div className="flex items-center justify-between mb-10">
+                  <span className="text-xs font-semibold text-primary uppercase tracking-[0.15em]">
+                    {feature.label}
+                  </span>
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all duration-300">
+                    <feature.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                  </div>
+                </div>
+
+                <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-4 font-display">
+                  {feature.title}
+                </h3>
+
+                <p className="text-muted-foreground leading-relaxed text-lg max-w-sm">
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom three smaller cards */}
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {features.slice(2).map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              className="group relative p-8 lg:p-10 rounded-3xl bg-muted border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden texture-card texture-border"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + index * 0.08 }}
+              whileHover={{ y: -4 }}
+            >
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+              <div className="relative z-10">
                 <span className="text-xs font-semibold text-primary uppercase tracking-[0.15em]">
                   {feature.label}
                 </span>
 
-                {/* Icon */}
-                <div className="w-14 h-14 rounded-2xl bg-muted flex items-center justify-center mt-6 mb-8 group-hover:bg-primary group-hover:glow-red-sm transition-all duration-300">
-                  <feature.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mt-5 mb-6 group-hover:bg-primary transition-all duration-300">
+                  <feature.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors duration-300" />
                 </div>
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-foreground mb-4 font-display">
+                <h3 className="text-xl font-bold text-foreground mb-3 font-display">
                   {feature.title}
                 </h3>
 
-                {/* Description */}
                 <p className="text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>

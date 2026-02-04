@@ -27,8 +27,8 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-32 lg:py-40 bg-secondary relative overflow-hidden">
-      <div className="container px-6 md:px-12 lg:px-20">
+    <section id="how-it-works" className="py-32 lg:py-40 bg-background texture-bg relative overflow-hidden section-grayscale">
+      <div className="container px-6 md:px-12 lg:px-20 relative z-10">
         {/* Section label */}
         <motion.div
           className="flex items-center gap-4 mb-12"
@@ -62,7 +62,7 @@ export function HowItWorks() {
           {/* Left steps */}
           <div className="flex flex-col gap-8 lg:w-1/3">
             <motion.div
-              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 texture-card texture-border"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -82,7 +82,7 @@ export function HowItWorks() {
             </motion.div>
 
             <motion.div
-              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 lg:ml-8"
+              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 lg:ml-8 texture-card texture-border"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -142,7 +142,7 @@ export function HowItWorks() {
           {/* Right step */}
           <div className="flex flex-col justify-center lg:w-1/3">
             <motion.div
-              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300"
+              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 texture-card texture-border"
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

@@ -21,12 +21,14 @@ export function Hero() {
   }
 
   return (
-    <section className="min-h-screen bg-hero-gradient relative overflow-hidden">
+    <section className="min-h-screen bg-hero-gradient texture-bg relative overflow-hidden section-grayscale">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
       </div>
+      {/* Texture noise overlay */}
+      <div className="absolute inset-0 texture-noise pointer-events-none" />
 
       <div className="container relative z-10 px-6 md:px-12 lg:px-20 pt-32 pb-24 min-h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center w-full">
@@ -34,7 +36,7 @@ export function Hero() {
           <div className="max-w-2xl">
             {/* Badge */}
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-10"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-10 texture-card relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -89,7 +91,7 @@ export function Hero() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 h-14 px-5 bg-muted/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+                    className="flex-1 h-14 px-5 bg-muted/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all texture-card"
                   />
                   <motion.button
                     type="submit"
@@ -107,7 +109,7 @@ export function Hero() {
                   </motion.button>
                 </form>
               ) : (
-                <div className="bg-primary/10 border border-primary/20 rounded-xl p-5 max-w-md">
+                <div className="bg-primary/10 border border-primary/20 rounded-xl p-5 max-w-md texture-card">
                   <p className="text-primary font-medium">
                     You&apos;re on the list! We&apos;ll notify you when FyyndFit launches.
                   </p>
@@ -177,7 +179,7 @@ export function Hero() {
 
             {/* Floating elements */}
             <motion.div
-              className="absolute top-16 left-0 px-4 py-2.5 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-lg"
+              className="absolute top-16 left-0 px-4 py-2.5 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-lg texture-card"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
@@ -186,7 +188,7 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute top-40 right-0 px-4 py-2.5 bg-primary/20 backdrop-blur-sm rounded-xl border border-primary/30"
+              className="absolute top-40 right-0 px-4 py-2.5 bg-primary/20 backdrop-blur-sm rounded-xl border border-primary/30 texture-card"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
@@ -195,7 +197,7 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute bottom-24 left-8 px-4 py-2.5 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-lg"
+              className="absolute bottom-24 left-8 px-4 py-2.5 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-lg texture-card"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}

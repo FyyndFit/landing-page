@@ -37,7 +37,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="pt-32 pb-24 section-grayscale">
+      <main className="pt-32 pb-24">
         <div className="container px-6 md:px-12 lg:px-20">
           <div className="max-w-4xl mx-auto">
             {/* Header */}
@@ -129,7 +129,7 @@ export default function ContactPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <div className="bg-card border border-border rounded-2xl p-8 texture-card">
+                <div className="bg-card border border-border rounded-2xl p-8">
                   {!isSubmitted ? (
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div>

@@ -21,22 +21,20 @@ export function Hero() {
   }
 
   return (
-    <section className="min-h-screen bg-hero-gradient texture-bg relative overflow-hidden section-grayscale">
+    <section className="min-h-screen bg-hero-gradient relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
       </div>
-      {/* Texture noise overlay */}
-      <div className="absolute inset-0 texture-noise pointer-events-none" />
 
-      <div className="container relative z-10 px-6 md:px-12 lg:px-20 pt-32 pb-24 min-h-screen flex items-center">
+      <div className="container relative z-10 px-6 md:px-12 lg:px-20 pt-24 pb-16 lg:pt-32 lg:pb-24 min-h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center w-full">
           {/* Left: Text Content */}
           <div className="max-w-2xl">
             {/* Badge */}
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-10 texture-card relative"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-10 relative"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -47,7 +45,7 @@ export function Hero() {
 
             {/* Main headline */}
             <motion.h1
-              className="text-5xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] mb-8 font-display"
+              className="text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] mb-8 font-display"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
@@ -91,7 +89,7 @@ export function Hero() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 h-14 px-5 bg-muted/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all texture-card"
+                    className="flex-1 h-14 px-5 bg-muted/50 border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                   />
                   <motion.button
                     type="submit"
@@ -109,7 +107,7 @@ export function Hero() {
                   </motion.button>
                 </form>
               ) : (
-                <div className="bg-primary/10 border border-primary/20 rounded-xl p-5 max-w-md texture-card">
+                <div className="bg-primary/10 border border-primary/20 rounded-xl p-5 max-w-md">
                   <p className="text-primary font-medium">
                     You&apos;re on the list! We&apos;ll notify you when FyyndFit launches.
                   </p>
@@ -117,30 +115,10 @@ export function Hero() {
               )}
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              className="flex gap-12 mt-16 pt-10 border-t border-border/50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <div>
-                <div className="text-3xl font-bold text-primary font-display">1000+</div>
-                <div className="text-sm text-muted-foreground mt-1">Waitlist</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary font-display">500+</div>
-                <div className="text-sm text-muted-foreground mt-1">Exercises</div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary font-display">100%</div>
-                <div className="text-sm text-muted-foreground mt-1">Free to Join</div>
-              </div>
-            </motion.div>
           </div>
 
           {/* Right: Visual */}
-          <div className="relative h-[500px] lg:h-[650px] flex items-center justify-center">
+          <div className="relative h-[350px] lg:h-[650px] flex items-center justify-center">
             {/* App mockup placeholder */}
             <motion.div
               className="relative w-[280px] md:w-[320px]"
@@ -177,9 +155,9 @@ export function Hero() {
               </motion.div>
             </motion.div>
 
-            {/* Floating elements */}
+            {/* Floating elements - hidden on mobile */}
             <motion.div
-              className="absolute top-16 left-0 px-4 py-2.5 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-lg texture-card"
+              className="hidden lg:block absolute top-16 left-0 px-4 py-2.5 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-lg"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
@@ -188,7 +166,7 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute top-40 right-0 px-4 py-2.5 bg-primary/20 backdrop-blur-sm rounded-xl border border-primary/30 texture-card"
+              className="hidden lg:block absolute top-40 right-0 px-4 py-2.5 bg-primary/20 backdrop-blur-sm rounded-xl border border-primary/30"
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 1.1 }}
@@ -197,7 +175,7 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              className="absolute bottom-24 left-8 px-4 py-2.5 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-lg texture-card"
+              className="hidden lg:block absolute bottom-24 left-8 px-4 py-2.5 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-lg"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.3 }}

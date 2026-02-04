@@ -5,18 +5,29 @@ import { Features } from "@/components/features"
 import { HowItWorks } from "@/components/how-it-works"
 import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
-import { CursorReveal } from "@/components/cursor-reveal"
+import { GrainOverlay } from "@/components/grain-overlay"
+import { ScrollReveal } from "@/components/scroll-reveal"
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <CursorReveal />
+      <GrainOverlay />
       <Header />
-      <Hero />
-      <Problem />
-      <Features />
-      <HowItWorks />
-      <CTA />
+      <ScrollReveal>
+        <Hero />
+      </ScrollReveal>
+      <ScrollReveal>
+        <Problem />
+      </ScrollReveal>
+      <ScrollReveal>
+        <Features />
+      </ScrollReveal>
+      <ScrollReveal>
+        <HowItWorks />
+      </ScrollReveal>
+      <ScrollReveal>
+        <CTA />
+      </ScrollReveal>
       <Footer />
     </main>
   )

@@ -20,11 +20,9 @@ export function CTA() {
   }
 
   return (
-    <section id="waitlist" className="py-32 lg:py-40 bg-background texture-bg relative overflow-hidden section-grayscale">
+    <section id="waitlist" className="py-20 lg:py-40 bg-background relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-[200px]" />
-      {/* Texture noise overlay */}
-      <div className="absolute inset-0 texture-noise pointer-events-none" />
 
       <div className="container px-6 md:px-12 lg:px-20 relative z-10">
         <div className="max-w-4xl mx-auto">
@@ -63,7 +61,7 @@ export function CTA() {
               {/* Apple App Store */}
               <motion.a
                 href="#"
-                className="inline-flex items-center justify-center gap-3 h-16 px-8 bg-foreground text-background rounded-2xl hover:opacity-90 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 h-14 lg:h-16 px-8 bg-foreground text-background rounded-2xl hover:opacity-90 transition-all duration-300"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -79,7 +77,7 @@ export function CTA() {
               {/* Google Play Store */}
               <motion.a
                 href="#"
-                className="inline-flex items-center justify-center gap-3 h-16 px-8 bg-foreground text-background rounded-2xl hover:opacity-90 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 h-14 lg:h-16 px-8 bg-foreground text-background rounded-2xl hover:opacity-90 transition-all duration-300"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -147,7 +145,7 @@ export function CTA() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="flex-1 h-14 px-6 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all texture-card"
+                    className="flex-1 h-14 px-6 bg-muted border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
                   />
                   <motion.button
                     type="submit"
@@ -165,7 +163,7 @@ export function CTA() {
                   </motion.button>
                 </form>
               ) : (
-                <div className="bg-primary/10 border border-primary/20 rounded-xl p-6 max-w-lg mx-auto texture-card">
+                <div className="bg-primary/10 border border-primary/20 rounded-xl p-6 max-w-lg mx-auto">
                   <p className="text-primary font-medium text-lg">
                     Welcome to the community! We&apos;ll be in touch soon.
                   </p>

@@ -27,7 +27,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-32 lg:py-40 bg-background texture-bg relative overflow-hidden section-grayscale">
+    <section id="how-it-works" className="py-32 lg:py-40 bg-background relative overflow-hidden">
       <div className="container px-6 md:px-12 lg:px-20 relative z-10">
         {/* Section label */}
         <motion.div
@@ -57,12 +57,40 @@ export function HowItWorks() {
           </motion.h2>
         </div>
 
-        {/* Main content - Phone with floating cards */}
-        <div className="relative flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
-          {/* Left steps */}
-          <div className="flex flex-col gap-8 lg:w-1/3">
+        {/* Mobile: Vertical timeline */}
+        <div className="flex flex-col gap-6 lg:hidden relative">
+          {/* Connecting line */}
+          <div className="absolute left-6 top-8 bottom-8 w-px bg-border" />
+
+          {steps.map((step, index) => (
             <motion.div
-              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 texture-card texture-border"
+              key={step.number}
+              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 relative"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 + index * 0.1 }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:glow-red-sm transition-all duration-300 relative z-10">
+                  <step.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                </div>
+                <div>
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">Step {step.number}</span>
+                  <h3 className="text-xl font-bold text-foreground mt-1 font-display">{step.title}</h3>
+                  <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{step.description}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Desktop: Phone with floating cards */}
+        <div className="hidden lg:flex relative items-center justify-center gap-20">
+          {/* Left steps */}
+          <div className="flex flex-col gap-8 w-1/3">
+            <motion.div
+              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -82,7 +110,7 @@ export function HowItWorks() {
             </motion.div>
 
             <motion.div
-              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 lg:ml-8 texture-card texture-border"
+              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 ml-8"
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -104,14 +132,14 @@ export function HowItWorks() {
 
           {/* Center - Phone Mockup */}
           <motion.div
-            className="relative lg:w-1/3 flex justify-center"
+            className="relative w-1/3 flex justify-center"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
           >
             <motion.div
-              className="relative w-[260px] md:w-[280px]"
+              className="relative w-[280px]"
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -140,9 +168,9 @@ export function HowItWorks() {
           </motion.div>
 
           {/* Right step */}
-          <div className="flex flex-col justify-center lg:w-1/3">
+          <div className="flex flex-col justify-center w-1/3">
             <motion.div
-              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300 texture-card texture-border"
+              className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/30 transition-all duration-300"
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}

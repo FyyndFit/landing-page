@@ -22,7 +22,7 @@ const problems = [
 
 export function Problem() {
   return (
-    <section className="relative py-32 lg:py-40 overflow-hidden section-grayscale">
+    <section className="relative py-20 lg:py-40 overflow-hidden">
       {/* Gym Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -32,8 +32,6 @@ export function Problem() {
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/80" />
-      {/* Concrete texture overlay */}
-      <div className="absolute inset-0 texture-concrete" />
 
       <div className="container px-6 md:px-12 lg:px-20 relative z-10">
         {/* Section label */}
@@ -80,7 +78,7 @@ export function Problem() {
           {problems.map((problem, index) => (
             <motion.div
               key={problem.number}
-              className="group relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary/50 transition-all duration-500 texture-card texture-border"
+              className="group relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-primary/50 transition-all duration-500"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

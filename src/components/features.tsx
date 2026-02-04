@@ -38,7 +38,7 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="py-32 lg:py-40 bg-secondary texture-bg relative section-grayscale">
+    <section id="features" className="py-32 lg:py-40 bg-secondary relative">
       <div className="container px-6 md:px-12 lg:px-20 relative z-10">
         {/* Section label */}
         <motion.div
@@ -54,7 +54,7 @@ export function Features() {
         </motion.div>
 
         {/* Main headline */}
-        <div className="max-w-4xl mb-24">
+        <div className="max-w-4xl mb-16 lg:mb-24">
           <motion.h2
             className="text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-8 font-display"
             initial={{ opacity: 0, y: 30 }}
@@ -83,7 +83,7 @@ export function Features() {
           {features.slice(0, 2).map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="group relative p-10 lg:p-12 rounded-3xl bg-muted border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden texture-card texture-border"
+              className="group relative p-10 lg:p-12 rounded-3xl bg-muted border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -120,7 +120,7 @@ export function Features() {
           {features.slice(2).map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="group relative p-8 lg:p-10 rounded-3xl bg-muted border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden texture-card texture-border"
+              className="group relative p-8 lg:p-10 rounded-3xl bg-muted border border-border hover:border-primary/30 transition-all duration-500 overflow-hidden"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

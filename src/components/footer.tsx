@@ -31,19 +31,19 @@ export function Footer() {
           {/* Links */}
           <nav className="flex items-center gap-10 text-sm">
             <a
-              href="#"
+              href="/privacy"
               className="text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               Privacy
             </a>
             <a
-              href="#"
+              href="/terms"
               className="text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               Terms
             </a>
             <a
-              href="#"
+              href="/contact"
               className="text-muted-foreground hover:text-foreground transition-colors duration-300"
             >
               Contact

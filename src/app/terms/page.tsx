@@ -4,6 +4,30 @@ import fs from 'fs'
 import path from 'path'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Terms of Use",
+  description: "FyyndFit Terms of Use. Read our terms and conditions, user responsibilities, and service agreements.",
+  keywords: ["terms of use", "terms and conditions", "user agreement", "service terms", "legal"],
+  openGraph: {
+    title: "Terms of Use | FyyndFit",
+    description: "FyyndFit Terms of Use. Read our terms and conditions, user responsibilities, and service agreements.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Terms of Use | FyyndFit",
+    description: "FyyndFit Terms of Use. Read our terms and conditions, user responsibilities, and service agreements.",
+  },
+  alternates: {
+    canonical: "/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 async function getTermsContent() {
   const filePath = path.join(process.cwd(), 'content', 'terms.mdx')

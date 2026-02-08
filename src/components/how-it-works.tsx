@@ -145,20 +145,16 @@ export function HowItWorks() {
             >
               {/* Phone frame */}
               <div className="relative bg-gradient-to-br from-muted to-muted/50 rounded-[3rem] p-3 border border-border shadow-2xl">
-                <div className="bg-card rounded-[2.5rem] overflow-hidden aspect-[9/19] flex items-center justify-center">
-                  <div className="text-center space-y-6 p-6">
-                    <Image
-                      src="/fyyndfit-logo.png"
-                      alt="FyyndFit App"
-                      width={120}
-                      height={120}
-                      className="mx-auto rounded-2xl"
-                    />
-                    <div className="space-y-2">
-                      <p className="text-muted-foreground text-sm font-medium">App Preview</p>
-                      <p className="text-muted-foreground/60 text-xs">Coming Soon</p>
-                    </div>
-                  </div>
+                <div className="bg-card rounded-[2.5rem] overflow-hidden aspect-[9/19] relative">
+                  <Image
+                    src="/IMG_9475.PNG"
+                    alt="FyyndFit Workouts Preview"
+                    fill
+                    className="object-cover object-top"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 280px, (max-width: 1024px) 300px, 320px"
+                    quality={85}
+                  />
                 </div>
               </div>
 

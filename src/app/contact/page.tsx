@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -15,6 +15,21 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+
+  useEffect(() => {
+    // Check URL parameters on client side
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search)
+      const subjectParam = params.get("subject")
+      if (subjectParam === "account-deletion") {
+        setFormData(prev => ({
+          ...prev,
+          subject: "account-deletion",
+          message: "I would like to request deletion of my account and all associated data."
+        }))
+      }
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -179,6 +194,7 @@ export default function ContactPage() {
                           <option value="">Select a subject</option>
                           <option value="general">General Inquiry</option>
                           <option value="support">Technical Support</option>
+                          <option value="account-deletion">Account Deletion Request</option>
                           <option value="partnership">Partnership</option>
                           <option value="feedback">Feedback</option>
                           <option value="other">Other</option>

@@ -7,28 +7,32 @@ import { CTA } from "@/components/cta"
 import { Footer } from "@/components/footer"
 import { GrainOverlay } from "@/components/grain-overlay"
 import { ScrollReveal } from "@/components/scroll-reveal"
+import { StructuredData } from "@/components/structured-data"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <GrainOverlay />
-      <Header />
-      <ScrollReveal>
-        <Hero />
-      </ScrollReveal>
-      <ScrollReveal>
-        <Problem />
-      </ScrollReveal>
-      <ScrollReveal>
-        <Features />
-      </ScrollReveal>
-      <ScrollReveal>
-        <HowItWorks />
-      </ScrollReveal>
-      <ScrollReveal>
-        <CTA />
-      </ScrollReveal>
-      <Footer />
-    </main>
+    <>
+      <StructuredData />
+      <main className="min-h-screen">
+        <GrainOverlay />
+        <Header />
+        <ScrollReveal>
+          <Hero />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Problem />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Features />
+        </ScrollReveal>
+        <ScrollReveal>
+          <HowItWorks />
+        </ScrollReveal>
+        <ScrollReveal>
+          <CTA />
+        </ScrollReveal>
+        <Footer />
+      </main>
+    </>
   )
 }

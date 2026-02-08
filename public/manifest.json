@@ -1,0 +1,32 @@
+{
+  "name": "FyyndFit - Find Your Fitness",
+  "short_name": "FyyndFit",
+  "description": "AI-powered fitness app for beginners. Scan gym equipment, get personalized workouts, and track your progress.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0a09",
+  "theme_color": "#0c0a09",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/fyyndfit-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/fyyndfit-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "fitness", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/IMG_9474.PNG",
+      "sizes": "1080x1920",
+      "type": "image/png"
+    }
+  ]
+}

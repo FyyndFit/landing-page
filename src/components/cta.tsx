@@ -20,7 +20,7 @@ export function CTA() {
   }
 
   return (
-    <section id="waitlist" className="py-20 lg:py-40 bg-background relative overflow-hidden">
+    <section id="community" className="py-20 lg:py-40 bg-background relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-primary/5 rounded-full blur-[200px]" />
 
@@ -47,7 +47,7 @@ export function CTA() {
               transition={{ delay: 0.1 }}
             >
               Download FyyndFit and transform the way you train.
-              Available on iOS and Android.
+              Available now on iOS.
             </motion.p>
 
             {/* App Store Buttons */}
@@ -60,7 +60,9 @@ export function CTA() {
             >
               {/* Apple App Store */}
               <motion.a
-                href="#"
+                href="https://apps.apple.com/ca/app/fyyndfit/id6747248203"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 h-14 lg:h-16 px-8 bg-foreground text-background rounded-2xl hover:opacity-90 transition-all duration-300"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
@@ -90,26 +92,16 @@ export function CTA() {
                 </div>
               </motion.a>
             </motion.div>
-
-            <motion.p
-              className="text-sm text-muted-foreground mt-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-            >
-              Coming soon to both platforms
-            </motion.p>
           </div>
 
-          {/* Divider */}
+          {/* Join the Community Section - Disabled for this version */}
+          {/* 
           <div className="flex items-center gap-6 mb-16">
             <div className="flex-1 h-px bg-border" />
             <span className="text-muted-foreground text-sm">or</span>
             <div className="flex-1 h-px bg-border" />
           </div>
 
-          {/* Join the Community Section */}
           <div className="text-center">
             <motion.h3
               className="text-2xl md:text-3xl text-foreground mb-4 font-display"
@@ -127,10 +119,9 @@ export function CTA() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Get early access, fitness tips, and be first to know when we launch.
+              Join our community for fitness tips, updates, and connect with other users.
             </motion.p>
 
-            {/* Email Form */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -156,7 +147,7 @@ export function CTA() {
                   >
                     {isLoading ? "Joining..." : (
                       <>
-                        Join Waitlist
+                        Join Community
                         <ArrowRight className="w-5 h-5" />
                       </>
                     )}
@@ -171,7 +162,6 @@ export function CTA() {
               )}
             </motion.div>
 
-            {/* Trust signals */}
             <motion.div
               className="flex flex-wrap items-center justify-center gap-8 mt-10 text-sm text-muted-foreground"
               initial={{ opacity: 0 }}
@@ -189,7 +179,7 @@ export function CTA() {
                 <svg className="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
-                <span>Early access perks</span>
+                <span>Exclusive content</span>
               </div>
               <div className="flex items-center gap-2">
                 <svg className="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
@@ -199,6 +189,7 @@ export function CTA() {
               </div>
             </motion.div>
           </div>
+          */}
         </div>
       </div>
     </section>

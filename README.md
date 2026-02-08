@@ -8,11 +8,11 @@ Next.js marketing site for FyyndFit. Single-page layout with hero, features, how
 - **React 19**
 - **Tailwind CSS v4** + PostCSS
 - **TypeScript**
-- **Framer Motion** — scroll/hover animations
-- **next-themes** — light/dark (system)
-- **shadcn/ui** (New York) — Radix primitives, CVA, `tailwind-merge`, `clsx`
-- **Lucide React** — icons
-- **Geist** — fonts via `next/font`
+- **Framer Motion** - scroll/hover animations
+- **next-themes** - light/dark (system)
+- **shadcn/ui** (New York) - Radix primitives, CVA, `tailwind-merge`, `clsx`
+- **Lucide React** - icons
+- **Geist** - fonts via `next/font`
 
 ## Project Structure
 

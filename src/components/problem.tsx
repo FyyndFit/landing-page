@@ -11,7 +11,7 @@ const problems = [
   {
     number: "02",
     title: "Generic programs fail",
-    description: "Cookie-cutter workouts ignore your reality—your equipment, your space, your actual goals.",
+    description: "Cookie-cutter workouts ignore your reality - your equipment, your space, your actual goals.",
   },
   {
     number: "03",
@@ -23,12 +23,14 @@ const problems = [
 export function Problem() {
   return (
     <section className="relative py-20 lg:py-40 overflow-hidden">
-      {/* Gym Background Image */}
+      {/* Gym Background Image - Optimized */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=75&w=1200&auto=format&fit=crop')`,
         }}
+        loading="lazy"
+        aria-hidden="true"
       />
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/80" />

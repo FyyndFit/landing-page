@@ -32,7 +32,7 @@ const features = [
     icon: BarChart3,
     label: "Grow",
     title: "Progress Analytics",
-    description: "Visualize your journey. Workouts, streaks, personal records—all in one dashboard.",
+    description: "Visualize your journey. Workouts, streaks, personal records - all in one dashboard.",
   },
 ]
 

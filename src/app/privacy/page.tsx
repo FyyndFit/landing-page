@@ -4,6 +4,30 @@ import fs from 'fs'
 import path from 'path'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "FyyndFit Privacy Policy. Learn how we collect, use, and protect your personal information and fitness data.",
+  keywords: ["privacy policy", "data protection", "user privacy", "fitness app privacy", "GDPR"],
+  openGraph: {
+    title: "Privacy Policy | FyyndFit",
+    description: "FyyndFit Privacy Policy. Learn how we collect, use, and protect your personal information and fitness data.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | FyyndFit",
+    description: "FyyndFit Privacy Policy. Learn how we collect, use, and protect your personal information and fitness data.",
+  },
+  alternates: {
+    canonical: "/privacy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
 
 async function getPrivacyContent() {
   const filePath = path.join(process.cwd(), 'content', 'privacy.mdx')

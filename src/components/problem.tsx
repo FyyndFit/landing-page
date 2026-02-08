@@ -1,6 +1,8 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useScroll, useTransform, useSpring } from "framer-motion"
+import Image from "next/image"
+import { useRef } from "react"
 
 const problems = [
   {
@@ -21,19 +23,131 @@ const problems = [
 ]
 
 export function Problem() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  })
+
+  // Smooth spring animations for parallax
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
+
+  // Parallax effects for different layers (creating depth)
+  // Reduced movement ranges to prevent glitching
+  const imageY = useTransform(smoothProgress, [0, 1], ["0%", "25%"])
+  const imageScale = useTransform(smoothProgress, [0, 1], [1, 1.08])
+
+  // Overlay parallax (moves slower than image)
+  const overlayY = useTransform(smoothProgress, [0, 1], ["0%", "12%"])
+
+  // Orbs parallax (moves even slower for depth)
+  const orb1Y = useTransform(smoothProgress, [0, 1], ["0%", "8%"])
+  const orb2Y = useTransform(smoothProgress, [0, 1], ["0%", "-8%"])
+
   return (
-    <section className="relative py-20 lg:py-40 overflow-hidden">
-      {/* Gym Background Image - Optimized */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    <section ref={sectionRef} className="relative py-20 lg:py-40 overflow-hidden">
+      {/* Background Image Container - Strong Parallax */}
+      <motion.div
+        className="absolute inset-0"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=75&w=1200&auto=format&fit=crop')`,
+          y: imageY,
+          scale: imageScale,
+          willChange: "transform",
+          backfaceVisibility: "hidden"
         }}
-        loading="lazy"
-        aria-hidden="true"
+      >
+        <Image
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=75&w=1920&auto=format&fit=crop"
+          alt="Gym equipment background"
+          fill
+          className="object-cover object-center grayscale"
+          loading="lazy"
+          quality={85}
+          sizes="100vw"
+          priority={false}
+          style={{ filter: "grayscale(100%)" }}
+        />
+      </motion.div>
+
+      {/* Base Dark Overlay */}
+      <div className="absolute inset-0 bg-black/60" />
+
+      {/* Gradient Overlays - Hero Style with Parallax */}
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          y: overlayY,
+          willChange: "transform",
+          backfaceVisibility: "hidden"
+        }}
+      >
+        {/* Primary gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/10 to-transparent mix-blend-soft-light" />
+
+        {/* Secondary gradient for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/50" />
+
+        {/* Radial gradient overlay */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] opacity-50" />
+      </motion.div>
+
+      {/* Texture/Grain Overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.15] mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain)'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "256px 256px",
+        }}
       />
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/80" />
+
+      {/* Vignette Effect */}
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-black/40"
+        style={{
+          background: "radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.4) 100%)"
+        }}
+      />
+
+      {/* Animated Gradient Orbs for Depth with Parallax */}
+      <div className="absolute inset-0 overflow-hidden">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/15 rounded-full blur-[100px]"
+          style={{
+            y: orb1Y,
+            willChange: "transform",
+            backfaceVisibility: "hidden"
+          }}
+          animate={{
+            scale: [1, 1.05, 1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[80px]"
+          style={{
+            y: orb2Y,
+            willChange: "transform",
+            backfaceVisibility: "hidden"
+          }}
+          animate={{
+            scale: [1, 1.08, 1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+      </div>
 
       <div className="container px-6 md:px-12 lg:px-20 relative z-10">
         {/* Section label */}

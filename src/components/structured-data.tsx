@@ -1,6 +1,6 @@
 export function StructuredData() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://fyyndfit.com";
-  
+
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -10,6 +10,7 @@ export function StructuredData() {
     description: "AI-powered fitness app for beginners. Scan gym equipment, get personalized workouts, and track your progress.",
     sameAs: [
       "https://apps.apple.com/ca/app/fyyndfit/id6747248203",
+      "https://play.google.com/store/apps/details?id=com.fyyndfit.fyyndfit",
     ],
   };
 
@@ -18,7 +19,7 @@ export function StructuredData() {
     "@type": "MobileApplication",
     name: "FyyndFit",
     applicationCategory: "HealthApplication",
-    operatingSystem: "iOS",
+    operatingSystem: ["iOS", "Android"],
     offers: {
       "@type": "Offer",
       price: "0",
@@ -31,7 +32,10 @@ export function StructuredData() {
     },
     description: "AI-powered fitness app for beginners. Scan gym equipment with your camera, get personalized AI workouts, learn proper form with video tutorials, and track your progress.",
     screenshot: `${baseUrl}/IMG_9474.PNG`,
-    url: "https://apps.apple.com/ca/app/fyyndfit/id6747248203",
+    downloadUrl: [
+      "https://apps.apple.com/ca/app/fyyndfit/id6747248203",
+      "https://play.google.com/store/apps/details?id=com.fyyndfit.fyyndfit",
+    ],
   };
 
   const softwareApplicationSchema = {
@@ -39,7 +43,7 @@ export function StructuredData() {
     "@type": "SoftwareApplication",
     name: "FyyndFit",
     applicationCategory: "HealthApplication",
-    operatingSystem: "iOS",
+    operatingSystem: ["iOS", "Android"],
     offers: {
       "@type": "Offer",
       price: "0",
@@ -54,7 +58,10 @@ export function StructuredData() {
       "Progress analytics",
     ],
     screenshot: `${baseUrl}/IMG_9474.PNG`,
-    url: "https://apps.apple.com/ca/app/fyyndfit/id6747248203",
+    downloadUrl: [
+      "https://apps.apple.com/ca/app/fyyndfit/id6747248203",
+      "https://play.google.com/store/apps/details?id=com.fyyndfit.fyyndfit",
+    ],
   };
 
   const websiteSchema = {

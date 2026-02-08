@@ -13,8 +13,8 @@ export function Footer() {
   ]
 
   const supportLinks = [
-    { href: "/contact", label: "Contact Us" },
-    { href: "/contact?subject=account-deletion", label: "Delete Account" },
+    { href: "https://support.fyyndfit.com", label: "Contact Us", external: true },
+    { href: "https://support.fyyndfit.com", label: "Delete Account", external: true },
   ]
 
   return (
@@ -100,6 +100,8 @@ export function Footer() {
                 <motion.a
                   key={link.href}
                   href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
                   className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm group flex items-center gap-2"
                   whileHover={{ x: 4 }}
                 >

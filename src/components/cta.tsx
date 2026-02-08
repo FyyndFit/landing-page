@@ -47,7 +47,7 @@ export function CTA() {
               transition={{ delay: 0.1 }}
             >
               Download FyyndFit and transform the way you train.
-              Available now on iOS.
+              Available now on iOS and Android.
             </motion.p>
 
             {/* App Store Buttons */}
@@ -78,7 +78,9 @@ export function CTA() {
 
               {/* Google Play Store */}
               <motion.a
-                href="#"
+                href="https://play.google.com/store/apps/details?id=com.fyyndfit.fyyndfit&pcampaignid=web_share"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 h-14 lg:h-16 px-8 bg-foreground text-background rounded-2xl hover:opacity-90 transition-all duration-300"
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
